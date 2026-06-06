@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 For Noga 🌸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Quicksand:wght@300;400;500;600&family=Dancing+Script:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --lavender:#c9b8e8;--purple:#9b72cf;--deep-purple:#6b3fa0;
+  --pink:#f4a7c3;--soft-pink:#fce4ec;--gold:#d4af6a;--gold-light:#f0d080;
+  --white:#fff;--cream:#fff8f5;
+  --glass:rgba(255,255,255,0.12);--glass-border:rgba(255,255,255,0.25);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Quicksand',sans-serif;background:#0d0a1a;color:#fff;overflow-x:hidden;cursor:default}
+
+/* ── LOADING ── */
+#loading{position:fixed;inset:0;background:linear-gradient(135deg,#0d0a1a,#1a0a2e,#2d0a3e);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s,visibility 0.8s}
+#loading.hide{opacity:0;visibility:hidden}
+.load-flower{font-size:4rem;animation:spin 2s linear infinite}
+.load-text{font-family:'Dancing Script',cursive;font-size:1.8rem;color:var(--lavender);margin-top:1rem;animation:pulse 1.5s ease-in-out infinite}
+.load-bar{width:200px;height:3px;background:rgba(255,255,255,0.1);border-radius:3px;margin-top:1.5rem;overflow:hidden}
+.load-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--pink),var(--gold));border-radius:3px;animation:load 2.5s ease forwards}
+@keyframes load{from{width:0}to{width:100%}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:0.6}50%{opacity:1}}
+
+/* ── TOPBAR ── */
+#topbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;justify-content:flex-end;gap:1rem}
+.top-btn{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(10px);color:#fff;padding:0.5rem 1rem;border-radius:50px;cursor:pointer;font-family:'Quicksand',sans-serif;font-size:0.85rem;transition:all 0.3s}
+.top-btn:hover{background:rgba(155,114,207,0.4);transform:scale(1.05)}
+
+/* ── CANVAS PARTICLES ── */
+#bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* ── SECTION BASE ── */
+section{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 2rem;overflow:hidden}
+
+/* ── HERO ── */
+#hero{background:transparent}
+.hero-inner{text-align:center;max-width:800px}
+.hero-title{font-family:'Dancing Script',cursive;font-size:clamp(3rem,8vw,7rem);background:linear-gradient(135deg,var(--lavender),var(--pink),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;opacity:0;transform:translateY(40px);animation:fadeUp 1.2s 3s ease forwards;text-shadow:none}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.4rem);color:rgba(255,255,255,0.8);margin-top:1.5rem;line-height:1.7;font-weight:300;opacity:0;transform:translateY(30px);animation:fadeUp 1.2s 3.4s ease forwards}
+.hero-btn{margin-top:3rem;display:inline-block;padding:1rem 2.5rem;background:linear-gradient(135deg,var(--purple),var(--pink));border:none;border-radius:50px;color:#fff;font-family:'Quicksand',sans-serif;font-size:1.1rem;cursor:pointer;letter-spacing:0.5px;box-shadow:0 0 30px rgba(155,114,207,0.6),0 0 60px rgba(244,167,195,0.3);transition:all 0.4s;opacity:0;animation:fadeUp 1.2s 3.8s ease forwards}
+.hero-btn:hover{transform:scale(1.08);box-shadow:0 0 50px rgba(155,114,207,0.9),0 0 100px rgba(244,167,195,0.5)}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* ── LETTER ── */
+#letter{background:linear-gradient(180deg,#0d0a1a 0%,#1a0830 50%,#0d0a1a 100%)}
+.letter-card{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(20px);border-radius:24px;padding:3rem 3.5rem;max-width:720px;width:100%;box-shadow:0 8px 60px rgba(155,114,207,0.2),inset 0 1px 0 rgba(255,255,255,0.15)}
+.letter-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2vw,1.35rem);line-height:2;color:rgba(255,255,255,0.92);min-height:200px;white-space:pre-line}
+.cursor{display:inline-block;width:2px;height:1.2em;background:var(--pink);animation:blink 0.7s infinite;vertical-align:text-bottom}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ── WHY NOGA ── */
+#why{background:linear-gradient(180deg,#0d0a1a,#160a28,#0d0a1a)}
+.section-title{font-family:'Dancing Script',cursive;font-size:clamp(2rem,5vw,3.5rem);background:linear-gradient(135deg,var(--lavender),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:3rem;text-align:center}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:900px;width:100%}
+.card{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(15px);border-radius:20px;padding:2rem 1.5rem;text-align:center;opacity:0;transform:translateY(40px) scale(0.95);transition:transform 0.4s,box-shadow 0.4s;cursor:default}
+.card.visible{animation:cardIn 0.6s ease forwards}
+.card:hover{transform:translateY(-8px) scale(1.04);box-shadow:0 20px 60px rgba(155,114,207,0.4),0 0 30px rgba(244,167,195,0.2);border-color:rgba(255,255,255,0.4)}
+.card-icon{font-size:2.5rem;display:block;margin-bottom:0.8rem;filter:drop-shadow(0 0 8px rgba(212,175,106,0.6))}
+.card-label{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(255,255,255,0.9);font-style:italic}
+@keyframes cardIn{to{opacity:1;transform:translateY(0) scale(1)}}
+.card{cursor:pointer}
+.card.opened .card-icon::after{content:'✓';position:absolute;top:-6px;right:-6px;font-size:0.7rem;background:var(--gold);color:#1a0a2e;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-style:normal}
+.card .card-icon{position:relative;display:inline-block}
+
+/* ── SECRET CARD ── */
+.secret-card-wrap{grid-column:1/-1;display:flex;justify-content:center;margin-top:0.5rem}
+.secret-card{background:linear-gradient(135deg,rgba(107,63,160,0.35),rgba(244,167,195,0.2),rgba(212,175,106,0.2));border:1px solid rgba(212,175,106,0.5);backdrop-filter:blur(20px);border-radius:24px;padding:2rem 2.5rem;text-align:center;opacity:0;transform:translateY(30px) scale(0.9);transition:transform 0.4s,box-shadow 0.4s,opacity 0.6s;cursor:pointer;position:relative;overflow:hidden;max-width:320px;width:100%}
+.secret-card.unlocked{opacity:1;transform:translateY(0) scale(1);animation:secretPulse 3s ease-in-out infinite}
+.secret-card:hover{transform:translateY(-10px) scale(1.05)!important;box-shadow:0 30px 80px rgba(212,175,106,0.5),0 0 60px rgba(155,114,207,0.4)!important;border-color:rgba(212,175,106,0.9)!important}
+.secret-card::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,var(--gold),var(--purple),var(--pink),var(--gold));border-radius:26px;z-index:-1;opacity:0.6;animation:rotateBorder 4s linear infinite}
+@keyframes rotateBorder{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(360deg)}}
+@keyframes secretPulse{0%,100%{box-shadow:0 0 30px rgba(212,175,106,0.4),0 0 60px rgba(155,114,207,0.2)}50%{box-shadow:0 0 60px rgba(212,175,106,0.7),0 0 100px rgba(244,167,195,0.4)}}
+.secret-label{font-family:'Dancing Script',cursive;font-size:1.4rem;background:linear-gradient(135deg,var(--gold-light),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.secret-unlock-hint{font-size:0.8rem;color:rgba(255,255,255,0.45);margin-top:0.4rem;display:block}
+
+/* ── MODAL ── */
+#cardModal{position:fixed;inset:0;z-index:5000;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;visibility:hidden;transition:opacity 0.4s,visibility 0.4s}
+#cardModal.open{opacity:1;visibility:visible}
+.modal-backdrop{position:absolute;inset:0;background:rgba(10,5,25,0.85);backdrop-filter:blur(8px)}
+.modal-box{position:relative;z-index:1;background:linear-gradient(135deg,rgba(26,8,48,0.95),rgba(30,10,50,0.98));border:1px solid rgba(255,255,255,0.18);border-radius:28px;padding:2.8rem 3rem;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(0.7) translateY(40px);transition:transform 0.45s cubic-bezier(0.175,0.885,0.32,1.275);box-shadow:0 30px 100px rgba(155,114,207,0.4),0 0 60px rgba(244,167,195,0.15),inset 0 1px 0 rgba(255,255,255,0.12);direction:rtl;text-align:right}
+#cardModal.open .modal-box{transform:scale(1) translateY(0)}
+.modal-icon{font-size:3.5rem;text-align:center;display:block;margin-bottom:1.2rem;filter:drop-shadow(0 0 15px rgba(212,175,106,0.8));animation:iconBob 2s ease-in-out infinite}
+@keyframes iconBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.modal-title{font-family:'Dancing Script',cursive;font-size:1.8rem;background:linear-gradient(135deg,var(--lavender),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;margin-bottom:1.5rem}
+.modal-text{font-family:'Noto Naskh Arabic',serif;font-size:1.18rem;line-height:2.1;color:rgba(255,255,255,0.9);white-space:pre-line;direction:rtl;text-align:right}
+.modal-close{position:absolute;top:1.2rem;left:1.2rem;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));border:none;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(155,114,207,0.6);transition:all 0.3s}
+.modal-close:hover{transform:scale(1.15) rotate(90deg);box-shadow:0 0 35px rgba(244,167,195,0.8)}
+.modal-sparkles{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:28px}
+.modal-sparkle{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--gold-light);animation:modalSparkle linear infinite}
+@keyframes modalSparkle{0%{opacity:0;transform:scale(0)}30%{opacity:1;transform:scale(1)}70%{opacity:1}100%{opacity:0;transform:scale(0) translate(var(--tx),var(--ty))}}
+
+/* ── SECRET MODAL extras ── */
+.modal-box.secret-modal{background:linear-gradient(135deg,rgba(20,5,40,0.98),rgba(40,10,60,0.98));border-color:rgba(212,175,106,0.4);box-shadow:0 40px 120px rgba(107,63,160,0.6),0 0 100px rgba(244,167,195,0.2),0 0 200px rgba(212,175,106,0.1),inset 0 1px 0 rgba(212,175,106,0.3)}
+.secret-modal .modal-text{font-size:1.28rem;line-height:2.3;color:rgba(255,255,255,0.95)}
+.cards-progress{text-align:center;margin-top:2rem;font-size:0.85rem;color:rgba(255,255,255,0.4);letter-spacing:1px}
+.progress-dots{display:flex;gap:0.5rem;justify-content:center;margin-top:0.5rem}
+.progress-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.15);transition:all 0.4s;position:relative}
+.progress-dot.done{background:linear-gradient(135deg,var(--purple),var(--pink));box-shadow:0 0 10px rgba(155,114,207,0.6)}
+.progress-dot.done::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:6px;color:#fff}
+
+
+/* ── GARDEN ── */
+#garden{background:linear-gradient(180deg,#0d0a1a,#0a1520,#0d1a0a,#0d0a1a);position:relative;overflow:hidden}
+#gardenCanvas{position:absolute;inset:0;width:100%;height:100%}
+.garden-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3vw,2.2rem);color:rgba(255,255,255,0.9);text-align:center;max-width:600px;line-height:1.6;font-style:italic;position:relative;z-index:2;text-shadow:0 0 30px rgba(155,114,207,0.5)}
+.garden-hint{font-size:0.9rem;color:rgba(255,255,255,0.5);margin-top:1rem;position:relative;z-index:2}
+
+/* ── HAPPINESS METER ── */
+#happiness{background:linear-gradient(180deg,#0d0a1a,#1a0828,#0d0a1a)}
+.meter-wrap{max-width:500px;width:100%;text-align:center}
+.meter-track{background:rgba(255,255,255,0.1);border-radius:50px;height:28px;overflow:hidden;margin:2rem 0;border:1px solid rgba(255,255,255,0.15);box-shadow:inset 0 2px 10px rgba(0,0,0,0.3)}
+.meter-fill{height:100%;width:0%;border-radius:50px;background:linear-gradient(90deg,var(--deep-purple),var(--purple),var(--pink),var(--gold));transition:width 0.5s ease;box-shadow:0 0 20px rgba(244,167,195,0.6);position:relative}
+.meter-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);animation:shimmer 2s infinite}
+@keyframes shimmer{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.meter-pct{font-family:'Dancing Script',cursive;font-size:2rem;color:var(--gold-light);margin-bottom:0.5rem}
+.happy-btn{padding:1.2rem 3rem;background:linear-gradient(135deg,var(--purple),var(--pink));border:none;border-radius:50px;color:#fff;font-family:'Quicksand',sans-serif;font-size:1.1rem;cursor:pointer;box-shadow:0 0 30px rgba(155,114,207,0.5);transition:all 0.3s}
+.happy-btn:hover{transform:scale(1.06);box-shadow:0 0 50px rgba(155,114,207,0.8)}
+.happy-btn:active{transform:scale(0.97)}
+.happy-msg{margin-top:1.5rem;font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold-light);min-height:2rem;font-style:italic}
+
+/* ── MEMORY WALL ── */
+#memory{background:linear-gradient(180deg,#0d0a1a,#120818,#1a0a15,#0d0a1a)}
+.frames-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.2rem;max-width:860px;width:100%}
+.frame{border-radius:20px;overflow:visible;position:relative;cursor:pointer;animation:float 6s ease-in-out infinite}
+.frame:nth-child(2){animation-delay:-2s}
+.frame:nth-child(3){animation-delay:-4s}
+.frame::before{content:'';position:absolute;inset:-2px;border-radius:22px;background:linear-gradient(135deg,var(--purple),var(--pink),var(--gold),var(--lavender));opacity:0;transition:opacity 0.4s;z-index:0;filter:blur(1px)}
+.frame:hover::before{opacity:0.7}
+.frame-inner{position:relative;z-index:1;background:linear-gradient(145deg,rgba(30,12,55,0.9),rgba(40,10,45,0.85));border:1px solid rgba(255,255,255,0.15);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:2.2rem 1.8rem;backdrop-filter:blur(16px);transition:all 0.4s;box-shadow:0 12px 50px rgba(107,63,160,0.3),inset 0 1px 0 rgba(255,255,255,0.1)}
+.frame:hover .frame-inner{transform:translateY(-4px);box-shadow:0 25px 70px rgba(155,114,207,0.45),0 0 40px rgba(244,167,195,0.2),inset 0 1px 0 rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.3)}
+.frame-icon{font-size:3.2rem;filter:drop-shadow(0 0 12px rgba(212,175,106,0.8));transition:transform 0.4s}
+.frame:hover .frame-icon{transform:scale(1.15) rotate(-5deg);filter:drop-shadow(0 0 20px rgba(212,175,106,1))}
+.frame-label{font-family:'Dancing Script',cursive;font-size:1.25rem;color:rgba(255,255,255,0.9);text-align:center;line-height:1.4;text-shadow:0 0 15px rgba(155,114,207,0.5)}
+.frame-sublabel{font-family:'Noto Naskh Arabic',serif;font-size:0.88rem;color:rgba(255,255,255,0.45);direction:rtl;text-align:center}
+.frame-click-hint{font-size:0.75rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.2rem;transition:color 0.3s}
+.frame:hover .frame-click-hint{color:rgba(212,175,106,0.7)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* ── MEMORY MODAL ── */
+#memoryModal{position:fixed;inset:0;z-index:6000;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;visibility:hidden;transition:opacity 0.45s,visibility 0.45s}
+#memoryModal.open{opacity:1;visibility:visible}
+.memory-modal-backdrop{position:absolute;inset:0;background:rgba(8,4,20,0.88);backdrop-filter:blur(12px)}
+.memory-modal-box{position:relative;z-index:1;max-width:560px;width:100%;max-height:92vh;overflow-y:auto;transform:scale(0.65) translateY(50px) rotateX(8deg);transition:transform 0.5s cubic-bezier(0.175,0.885,0.32,1.3);transform-origin:center bottom}
+#memoryModal.open .memory-modal-box{transform:scale(1) translateY(0) rotateX(0deg)}
+.memory-modal-inner{background:linear-gradient(155deg,rgba(22,8,42,0.97),rgba(35,8,55,0.98),rgba(25,5,38,0.97));border-radius:28px;padding:0;overflow:hidden;box-shadow:0 40px 120px rgba(107,63,160,0.55),0 0 80px rgba(244,167,195,0.12),inset 0 1px 0 rgba(255,255,255,0.12)}
+.memory-modal-header{padding:2rem 2.5rem 1.5rem;position:relative;text-align:center;border-bottom:1px solid rgba(255,255,255,0.08)}
+.memory-modal-header::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(155,114,207,0.12) 0%,transparent 100%);pointer-events:none}
+.memory-modal-icon{font-size:3.8rem;display:block;margin:0 auto 0.8rem;filter:drop-shadow(0 0 18px rgba(212,175,106,0.9));animation:iconBob 2.5s ease-in-out infinite}
+.memory-modal-title{font-family:'Dancing Script',cursive;font-size:1.9rem;background:linear-gradient(135deg,var(--lavender),var(--pink),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.3}
+.memory-modal-body{padding:2rem 2.5rem 2.5rem;direction:rtl;text-align:right;position:relative}
+.memory-modal-text{font-family:'Noto Naskh Arabic',serif;font-size:1.18rem;line-height:2.2;color:rgba(255,255,255,0.92);white-space:pre-line;direction:rtl;text-align:right;min-height:60px}
+.memory-modal-text .tw-cursor{display:inline-block;width:2px;height:1.1em;background:var(--pink);animation:blink 0.65s infinite;vertical-align:text-bottom;margin-right:1px}
+.memory-modal-close{position:absolute;top:1.1rem;left:1.1rem;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(107,63,160,0.6),rgba(244,167,195,0.4));border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.9);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);transition:all 0.35s;box-shadow:0 0 15px rgba(155,114,207,0.4)}
+.memory-modal-close:hover{transform:scale(1.15) rotate(90deg);background:linear-gradient(135deg,var(--purple),var(--pink));box-shadow:0 0 30px rgba(244,167,195,0.7);border-color:rgba(255,255,255,0.4)}
+.memory-modal-sparkles{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:28px}
+.mem-sparkle{position:absolute;border-radius:50%;animation:memSparkleAnim ease-in-out infinite}
+@keyframes memSparkleAnim{0%,100%{opacity:0;transform:scale(0.3)}50%{opacity:0.9;transform:scale(1)}}
+/* Floating hearts in modal */
+.modal-float-heart{position:absolute;pointer-events:none;font-size:1.1rem;animation:modalHeartRise linear forwards;z-index:2}
+@keyframes modalHeartRise{0%{opacity:0.9;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-120px) scale(0.4) rotate(15deg)}}
+/* Border glow line at top */
+.memory-modal-inner::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--lavender),var(--pink),var(--gold-light),transparent);opacity:0.6}
+/* Decorative corner ornaments */
+.memory-modal-ornament{position:absolute;font-size:1.4rem;opacity:0.25;pointer-events:none;animation:ornamentPulse 3s ease-in-out infinite}
+.memory-modal-ornament.tl{top:0.8rem;right:0.8rem}
+.memory-modal-ornament.br{bottom:0.8rem;left:0.8rem;animation-delay:-1.5s}
+@keyframes ornamentPulse{0%,100%{opacity:0.2;transform:scale(1)}50%{opacity:0.5;transform:scale(1.1)}}
+
+/* ── MOTIVATION ── */
+#motivation{background:linear-gradient(180deg,#0d0a1a,#160a20,#0d0a1a)}
+.quote-display{max-width:700px;text-align:center}
+.quote-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,5vw,3rem);color:#fff;line-height:1.4;font-style:italic;transition:opacity 0.6s,transform 0.6s;min-height:3.5em;display:flex;align-items:center;justify-content:center}
+.quote-text.fade{opacity:0;transform:scale(0.96)}
+.quote-dots{display:flex;gap:0.5rem;justify-content:center;margin-top:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);transition:all 0.3s}
+.q-dot.active{background:var(--purple);transform:scale(1.4)}
+
+/* ── FINAL SURPRISE ── */
+#finale{background:radial-gradient(ellipse at center,#1a0a2e 0%,#0d0a1a 70%)}
+.gift-wrap{text-align:center}
+.gift-box{font-size:6rem;cursor:pointer;display:inline-block;transition:transform 0.3s;filter:drop-shadow(0 0 20px rgba(212,175,106,0.8));animation:giftPulse 2s ease-in-out infinite}
+.gift-box:hover{transform:scale(1.1) rotate(-3deg)}
+.gift-box:active{transform:scale(0.93)}
+@keyframes giftPulse{0%,100%{filter:drop-shadow(0 0 20px rgba(212,175,106,0.8))}50%{filter:drop-shadow(0 0 40px rgba(244,167,195,1)) drop-shadow(0 0 60px rgba(212,175,106,0.6))}}
+.gift-hint{margin-top:1rem;color:rgba(255,255,255,0.5);font-size:0.9rem}
+.final-msg{max-width:600px;margin:2rem auto 0;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(20px);border-radius:24px;padding:2.5rem;display:none;opacity:0;transition:opacity 0.8s}
+.final-msg.show{display:block}
+.final-msg.visible{opacity:1}
+.final-msg p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;line-height:2;color:rgba(255,255,255,0.9);text-align:center;font-style:italic;white-space:pre-line}
+
+/* ── HEARTS OVERLAY ── */
+.heart-particle{position:fixed;pointer-events:none;font-size:1.2rem;animation:heartFly 3s ease-out forwards;z-index:500}
+@keyframes heartFly{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-200px) scale(0.3) rotate(20deg)}}
+
+/* ── CONFETTI ── */
+.confetti-piece{position:fixed;width:10px;height:10px;pointer-events:none;z-index:500;animation:confettiFall linear forwards}
+@keyframes confettiFall{0%{opacity:1;transform:translateY(-20px) rotate(0deg)}100%{opacity:0;transform:translateY(105vh) rotate(720deg)}}
+
+/* ── SCROLL FADE IN ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── DARK/LIGHT MODE ── */
+body.light-mode{--glass:rgba(255,255,255,0.6);--glass-border:rgba(155,114,207,0.3);background:#faf5ff;color:#2a1a4a}
+body.light-mode section{color:#2a1a4a}
+body.light-mode .letter-text,body.light-mode .card-label,body.light-mode .frame-label{color:#2a1a4a}
+body.light-mode #bgCanvas{opacity:0.4}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+.letter-card{padding:2rem 1.5rem}
+.cards-grid{grid-template-columns:1fr 1fr}
+.frames-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING -->
+<div id="loading">
+  <div class="load-flower">🌸</div>
+  <div class="load-text">Preparing something special for Noga...</div>
+  <div class="load-bar"><div class="load-fill"></div></div>
+</div>
+
+<!-- TOP BAR -->
+<div id="topbar">
+  <button class="top-btn" id="musicBtn">🎵 Music</button>
+  <button class="top-btn" id="themeBtn">🌙 Theme</button>
+</div>
+
+<!-- BG CANVAS -->
+<canvas id="bgCanvas"></canvas>
+
+<!-- SECTION 1: HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">🌸 To Noga 🌸</h1>
+    <p class="hero-sub">Sometimes we need a reminder<br>of how special we truly are.</p>
+    <button class="hero-btn" onclick="document.getElementById('letter').scrollIntoView({behavior:'smooth'})">✨ Open Your Surprise ✨</button>
+  </div>
+</section>
+
+<!-- SECTION 2: LETTER -->
+<section id="letter">
+  <h2 class="section-title reveal">A Letter For You 💌</h2>
+  <div class="letter-card reveal">
+    <div class="letter-text" id="letterText"><span class="cursor"></span></div>
+  </div>
+</section>
+
+<!-- SECTION 3: WHY NOGA -->
+<section id="why">
+  <h2 class="section-title reveal">Why Noga Is Amazing</h2>
+  <div class="cards-grid" id="cardsGrid">
+    <div class="card" data-id="0"><span class="card-icon">🌷</span><span class="card-label">Kind Heart</span></div>
+    <div class="card" data-id="1"><span class="card-icon">✨</span><span class="card-label">Strong Soul</span></div>
+    <div class="card" data-id="2"><span class="card-icon">🤍</span><span class="card-label">Beautiful Spirit</span></div>
+    <div class="card" data-id="3"><span class="card-icon">🌸</span><span class="card-label">Caring Person</span></div>
+    <div class="card" data-id="4"><span class="card-icon">💜</span><span class="card-label">Deserves Happiness</span></div>
+    <div class="card" data-id="5"><span class="card-icon">🌟</span><span class="card-label">Inspires Others</span></div>
+    <div class="secret-card-wrap" id="secretCardWrap" style="display:none">
+      <div class="secret-card" id="secretCard" data-id="6">
+        <span class="card-icon" style="font-size:2.5rem;display:block;margin-bottom:0.8rem;filter:drop-shadow(0 0 12px rgba(212,175,106,0.9))">🎁</span>
+        <span class="secret-label">Secret Message For Noga</span>
+        <span class="secret-unlock-hint">✨ تم فتح رسالة سرية ✨</span>
+      </div>
+    </div>
+  </div>
+  <div class="cards-progress">
+    <span id="progressText">افتحي البطاقات لتكتشفي رسالة سرية</span>
+    <div class="progress-dots" id="progressDots"></div>
+  </div>
+</section>
+
+<!-- CARD MODAL -->
+<div id="cardModal">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-box" id="modalBox">
+    <div class="modal-sparkles" id="modalSparkles"></div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-icon" id="modalIcon"></span>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-text" id="modalText"></div>
+  </div>
+</div>
+
+<!-- SECTION 4: GARDEN -->
+<section id="garden">
+  <canvas id="gardenCanvas"></canvas>
+  <blockquote class="garden-quote reveal">"Even flowers bloom after difficult seasons."</blockquote>
+  <p class="garden-hint reveal">✿ Click the garden to bloom flowers ✿</p>
+</section>
+
+<!-- SECTION 5: HAPPINESS METER -->
+<section id="happiness">
+  <div class="meter-wrap reveal">
+    <h2 class="section-title">Happiness Meter 💖</h2>
+    <div class="meter-pct" id="meterPct">0%</div>
+    <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    <button class="happy-btn" id="happyBtn">Click to Recharge Happiness ✨</button>
+    <div class="happy-msg" id="happyMsg"></div>
+  </div>
+</section>
+
+<!-- SECTION 6: MEMORY WALL -->
+<section id="memory">
+  <h2 class="section-title reveal">لنوجا... من القلب 💌</h2>
+  <div class="frames-grid">
+
+    <div class="frame reveal" data-memory="0">
+      <div class="frame-inner">
+        <span class="frame-icon">🤝</span>
+        <span class="frame-label">Always There</span>
+        <span class="frame-sublabel">دايمًا موجودة</span>
+        <span class="frame-click-hint">✨ اضغطي للقراءة ✨</span>
+      </div>
+    </div>
+
+    <div class="frame reveal" data-memory="1">
+      <div class="frame-inner">
+        <span class="frame-icon">🎓</span>
+        <span class="frame-label">Bright Future</span>
+        <span class="frame-sublabel">مستقبل مشرق</span>
+        <span class="frame-click-hint">✨ اضغطي للقراءة ✨</span>
+      </div>
+    </div>
+
+    <div class="frame reveal" data-memory="2">
+      <div class="frame-inner">
+        <span class="frame-icon">🌟</span>
+        <span class="frame-label">Hidden Treasure</span>
+        <span class="frame-sublabel">كنز مخفي</span>
+        <span class="frame-click-hint">✨ اضغطي للقراءة ✨</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MEMORY MODAL -->
+<div id="memoryModal">
+  <div class="memory-modal-backdrop" onclick="closeMemoryModal()"></div>
+  <div class="memory-modal-box">
+    <div class="memory-modal-inner">
+      <div class="memory-modal-sparkles" id="memoryModalSparkles"></div>
+      <div class="memory-modal-ornament tl">🌸</div>
+      <div class="memory-modal-ornament br">💜</div>
+      <div class="memory-modal-header">
+        <button class="memory-modal-close" onclick="closeMemoryModal()">✕</button>
+        <span class="memory-modal-icon" id="memModalIcon"></span>
+        <div class="memory-modal-title" id="memModalTitle"></div>
+      </div>
+      <div class="memory-modal-body">
+        <div class="memory-modal-text" id="memModalText"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: MOTIVATION -->
+<section id="motivation">
+  <div class="quote-display reveal">
+    <h2 class="section-title">Words For You 🌟</h2>
+    <div class="quote-text" id="quoteText"></div>
+    <div class="quote-dots" id="quoteDots"></div>
+  </div>
+</section>
+
+<!-- SECTION 8: FINAL SURPRISE -->
+<section id="finale">
+  <div class="gift-wrap">
+    <h2 class="section-title reveal">One Last Surprise 🎁</h2>
+    <div class="gift-box reveal" id="giftBox" onclick="openGift()">🎁</div>
+    <p class="gift-hint reveal">Click the gift box 🎀</p>
+    <div class="final-msg" id="finalMsg">
+      <p>Dear Noga,
+
+If this page made you smile even a little,
+then its mission was successful.
+
+Never forget how valuable and wonderful you are.
+
+The world is brighter with you in it.
+
+💜</p>
+    </div>
+  </div>
+</section>
+
+<script>
+// ────────────────────────────────────────
+// LOADING
+// ────────────────────────────────────────
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loading').classList.add('hide');
+    initAll();
+  }, 2800);
+});
+
+function initAll() {
+  initBgCanvas();
+  initScrollReveal();
+  initLetter();
+  initCards();
+  initGarden();
+  initMeter();
+  initQuotes();
+}
+
+// ────────────────────────────────────────
+// BG CANVAS — Stars + Particles
+// ────────────────────────────────────────
+function initBgCanvas() {
+  const c = document.getElementById('bgCanvas');
+  const ctx = c.getContext('2d');
+  let W, H, stars = [], particles = [];
+
+  function resize() {
+    W = c.width = window.innerWidth;
+    H = c.height = window.innerHeight;
+    stars = Array.from({length: 180}, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 1.8 + 0.3,
+      o: Math.random(), speed: Math.random() * 0.4 + 0.1,
+      dx: (Math.random() - 0.5) * 0.15, dy: (Math.random() - 0.5) * 0.05
+    }));
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Floating glow particles
+  for (let i = 0; i < 60; i++) particles.push(newParticle(W, H));
+  function newParticle(W, H) {
+    const colors = ['#c9b8e8','#f4a7c3','#d4af6a','#9b72cf','#fff'];
+    return {
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 4 + 1, vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5,
+      o: Math.random() * 0.6 + 0.1, color: colors[Math.floor(Math.random()*colors.length)],
+      life: 0, maxLife: Math.random() * 300 + 200
+    };
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    // Stars
+    stars.forEach(s => {
+      s.o += Math.sin(Date.now() * 0.001 + s.x) * 0.01;
+      s.o = Math.max(0.1, Math.min(1, s.o));
+      s.x += s.dx; s.y += s.dy;
+      if (s.x < 0) s.x = W; if (s.x > W) s.x = 0;
+      if (s.y < 0) s.y = H; if (s.y > H) s.y = 0;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${s.o})`;
+      ctx.fill();
+    });
+    // Particles
+    particles.forEach((p, i) => {
+      p.life++;
+      p.x += p.vx; p.y += p.vy;
+      const lifeRatio = p.life / p.maxLife;
+      const alpha = lifeRatio < 0.2 ? lifeRatio / 0.2 : lifeRatio > 0.8 ? (1 - lifeRatio) / 0.2 : 1;
+      ctx.beginPath();
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+      g.addColorStop(0, p.color.replace(')', `,${p.o * alpha})`).replace('rgb', 'rgba'));
+      g.addColorStop(1, 'transparent');
+      ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+      if (p.life >= p.maxLife || p.x < 0 || p.x > W || p.y < 0 || p.y > H) {
+        particles[i] = newParticle(W, H);
+      }
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ────────────────────────────────────────
+// SCROLL REVEAL
+// ────────────────────────────────────────
+function initScrollReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+
+// ────────────────────────────────────────
+// TYPEWRITER LETTER
+// ────────────────────────────────────────
+function initLetter() {
+  const letterText = `Hello Noga,
+
+Maybe the past days haven't been easy.
+Maybe there were things that hurt you or made you feel tired.
+
+But today isn't about sadness.
+
+Today is simply a reminder that you are stronger than you think.
+
+Your presence matters.
+Your smile matters.
+Your kindness matters.
+
+You bring light to people without even realizing it.
+
+Never let one bad day convince you that your story isn't beautiful.
+
+You deserve happiness.
+You deserve peace.
+You deserve every beautiful thing life has to offer.
+
+And no matter what happens,
+better days are coming.
+
+Keep shining.
+
+💜`;
+
+  const el = document.getElementById('letterText');
+  let i = 0, typing = false, heartTimer;
+
+  const letterSection = document.getElementById('letter');
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !typing) {
+      typing = true;
+      type();
+      heartTimer = setInterval(spawnHeart, 800);
+    }
+  }, { threshold: 0.3 });
+  obs.observe(letterSection);
+
+  function type() {
+    if (i <= letterText.length) {
+      el.innerHTML = letterText.slice(0, i).replace(/\n/g, '<br>') + '<span class="cursor"></span>';
+      i++;
+      setTimeout(type, i < 20 ? 40 : 18);
+    } else {
+      el.innerHTML = letterText.replace(/\n/g, '<br>');
+      clearInterval(heartTimer);
+    }
+  }
+}
+
+// ────────────────────────────────────────
+// CARDS + MODAL + SECRET CARD
+// ────────────────────────────────────────
+const CARD_DATA = [
+  {
+    icon: '🌷', title: 'Kind Heart • قلب طيب',
+    text: `يا نوجا،
+
+في ناس جميلة بالشكل،
+وفي ناس جميلة بالكلام،
+
+وانتي من الناس اللي جمالهم في قلبهم.
+
+ودي أحلى حاجة ممكن تكون في أي إنسان. 💜`
+  },
+  {
+    icon: '✨', title: 'Strong Soul • روح قوية',
+    text: `عارفة؟
+
+أوقات كتير بتعدي عليكي حاجات صعبة وتفتكري إنك ضعيفة.
+
+بس الحقيقة إن مجرد إنك لسه بتحاولي وبتكملي ده دليل إنك أقوى مما تتخيلي بكتير. 🌟`
+  },
+  {
+    icon: '🤍', title: 'Beautiful Spirit • روح جميلة',
+    text: `في ناس وجودها عادي...
+
+وفي ناس لما تكون موجودة بتحس إن الدنيا ألطف شوية.
+
+وانتي من النوع التاني. 🤍`
+  },
+  {
+    icon: '🌸', title: 'Caring Person • إنسانة مُهتمة',
+    text: `أجمل حاجة فيكي إنك بتهتمي بالناس من قلبك.
+
+وصدقيني، الطيبة دي مش حاجة سهلة تتعوض.
+
+خليكي زي ما انتي. 🌸`
+  },
+  {
+    icon: '💜', title: 'Deserves Happiness • تستحقين السعادة',
+    text: `لو في حد يستاهل يضحك من قلبه ويرتاح ويبقى مبسوط...
+
+فأكيد انتي واحدة من الناس دي.
+
+لأنك فعلًا تستحقي كل حاجة حلوة. 💜`
+  },
+  {
+    icon: '🌟', title: 'Inspires Others • بتلهمي الناس',
+    text: `يمكن انتي مش شايفة ده،
+
+لكن في ناس بتحب وجودك أكتر ما تتخيلي.
+
+وفي ناس يومها بيبقى أحسن لمجرد إنك موجودة فيه. ✨`
+  },
+  {
+    icon: '🎁', title: '🌟 رسالة سرية لنوجا 🌟',
+    text: `بصي يا نوجا...
+
+مش لازم تكوني مثالية.
+
+ومش لازم تكوني دايمًا قوية.
+
+ومش لازم تفرحي كل يوم.
+
+كفاية إنك انتي.
+
+لأن نوجا اللي الناس بتحبها وتقدرها هي نوجا الحقيقية...
+
+بضحكتها،
+بعفويتها،
+وبكل تفاصيلها الجميلة.
+
+💜🌷✨`,
+    isSecret: true
+  }
+];
+
+let openedCards = new Set();
+
+function initCards() {
+  // Build progress dots (6 regular cards)
+  const dotsEl = document.getElementById('progressDots');
+  for (let i = 0; i < 6; i++) {
+    const d = document.createElement('div');
+    d.className = 'progress-dot';
+    d.id = `pdot-${i}`;
+    dotsEl.appendChild(d);
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, idx) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), idx * 120);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.card').forEach(c => {
+    obs.observe(c);
+    c.addEventListener('click', () => {
+      const id = parseInt(c.dataset.id);
+      openModal(id);
+    });
+  });
+
+  // Secret card click
+  document.getElementById('secretCard').addEventListener('click', () => openModal(6));
+}
+
+function openModal(id) {
+  const data = CARD_DATA[id];
+  const modal = document.getElementById('cardModal');
+  const box = document.getElementById('modalBox');
+
+  document.getElementById('modalIcon').textContent = data.icon;
+  document.getElementById('modalTitle').textContent = data.title;
+  document.getElementById('modalText').textContent = data.text;
+
+  box.className = data.isSecret ? 'modal-box secret-modal' : 'modal-box';
+
+  // Sparkles inside modal
+  const sp = document.getElementById('modalSparkles');
+  sp.innerHTML = '';
+  const count = data.isSecret ? 30 : 16;
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement('div');
+    s.className = 'modal-sparkle';
+    const tx = (Math.random() - 0.5) * 200 + 'px';
+    const ty = (Math.random() - 0.5) * 200 + 'px';
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;
+      --tx:${tx};--ty:${ty};
+      animation-duration:${2+Math.random()*3}s;
+      animation-delay:${Math.random()*2}s;
+      width:${data.isSecret?6:4}px;height:${data.isSecret?6:4}px;
+      background:${['#d4af6a','#f4a7c3','#c9b8e8','#fff'][Math.floor(Math.random()*4)]}`;
+    sp.appendChild(s);
+  }
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Mark card as opened
+  if (id < 6 && !openedCards.has(id)) {
+    openedCards.add(id);
+    const dot = document.getElementById(`pdot-${id}`);
+    if (dot) dot.classList.add('done');
+    const card = document.querySelector(`.card[data-id="${id}"]`);
+    if (card) card.classList.add('opened');
+
+    if (openedCards.size === 6) unlockSecretCard();
+  }
+
+  // Secret card: full celebration
+  if (data.isSecret) {
+    spawnConfetti(120);
+    for (let i = 0; i < 25; i++) setTimeout(() => spawnHeart(), i * 80);
+    document.getElementById('progressText').textContent = '🎉 رسالة سرية تم فتحها! 🎉';
+  }
+}
+
+function closeModal() {
+  const modal = document.getElementById('cardModal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function unlockSecretCard() {
+  const wrap = document.getElementById('secretCardWrap');
+  wrap.style.display = 'flex';
+  setTimeout(() => {
+    document.getElementById('secretCard').classList.add('unlocked');
+    document.getElementById('progressText').textContent = '🎁 تم فتح رسالة سرية! اضغطي عليها ✨';
+    spawnConfetti(40);
+    for (let i = 0; i < 8; i++) setTimeout(() => spawnHeart(), i * 150);
+  }, 100);
+}
+
+// ────────────────────────────────────────
+// GARDEN CANVAS
+// ────────────────────────────────────────
+function initGarden() {
+  const canvas = document.getElementById('gardenCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, butterflies = [], petals = [], sparkles = [], flowers = [];
+
+  function resize() {
+    W = canvas.width = canvas.parentElement.offsetWidth;
+    H = canvas.height = canvas.parentElement.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Butterflies
+  for (let i = 0; i < 8; i++) butterflies.push({
+    x: Math.random() * 1000, y: Math.random() * 600,
+    vx: (Math.random() - 0.5) * 1.5, vy: (Math.random() - 0.5) * 1,
+    wing: 0, wSpeed: 0.1 + Math.random() * 0.1,
+    color: ['#c9b8e8','#f4a7c3','#d4af6a','#9b72cf'][Math.floor(Math.random()*4)],
+    size: 12 + Math.random() * 10
+  });
+
+  // Petals
+  function newPetal() {
+    return {
+      x: Math.random() * W, y: -20,
+      vx: (Math.random() - 0.5) * 2, vy: 0.5 + Math.random() * 1.5,
+      r: Math.random() * 8 + 4, rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.05,
+      color: ['#f4a7c3','#fce4ec','#c9b8e8','#f8bbd9','#e1bee7'][Math.floor(Math.random()*5)],
+      life: 0
+    };
+  }
+  for (let i = 0; i < 25; i++) {
+    const p = newPetal(); p.y = Math.random() * H;
+    petals.push(p);
+  }
+
+  canvas.parentElement.addEventListener('click', e => {
+    const rect = canvas.getBoundingClientRect();
+    const fx = e.clientX - rect.left, fy = e.clientY - rect.top;
+    flowers.push({ x: fx, y: fy, r: 0, maxR: 50 + Math.random() * 30, petals: 5 + Math.floor(Math.random()*3), color: ['#f4a7c3','#c9b8e8','#d4af6a'][Math.floor(Math.random()*3)], life: 0 });
+    for (let i = 0; i < 15; i++) sparkles.push({ x: fx, y: fy, vx: (Math.random()-0.5)*5, vy: (Math.random()-0.5)*5, r: 2+Math.random()*3, life: 0, maxLife: 40 });
+  });
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Petals
+    if (Math.random() < 0.3) petals.push(newPetal());
+    petals.forEach((p, i) => {
+      p.x += p.vx + Math.sin(p.life * 0.03) * 0.5;
+      p.y += p.vy; p.rot += p.rotV; p.life++;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.beginPath(); ctx.ellipse(0, 0, p.r, p.r * 0.5, 0, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + 'cc'; ctx.fill(); ctx.restore();
+      if (p.y > H + 30) petals[i] = newPetal();
+    });
+
+    // Butterflies
+    butterflies.forEach(b => {
+      b.wing += b.wSpeed;
+      b.x += b.vx + Math.sin(Date.now()*0.001+b.x)*0.3;
+      b.y += b.vy + Math.cos(Date.now()*0.0015+b.y)*0.2;
+      if (b.x < 0) b.x = W; if (b.x > W) b.x = 0;
+      if (b.y < 0) b.y = H; if (b.y > H) b.y = 0;
+      const wf = Math.abs(Math.sin(b.wing));
+      ctx.save(); ctx.translate(b.x, b.y);
+      // Wings
+      [1, -1].forEach(dir => {
+        ctx.save(); ctx.scale(dir * wf, 1);
+        ctx.beginPath(); ctx.ellipse(b.size * 0.6, 0, b.size * 0.7, b.size * 0.45, -0.3, 0, Math.PI*2);
+        ctx.fillStyle = b.color + '99'; ctx.fill();
+        ctx.beginPath(); ctx.ellipse(b.size * 0.4, b.size * 0.4, b.size * 0.5, b.size * 0.3, 0.5, 0, Math.PI*2);
+        ctx.fillStyle = b.color + '77'; ctx.fill(); ctx.restore();
+      });
+      // Body
+      ctx.beginPath(); ctx.ellipse(0, 0, 3, b.size * 0.5, 0, 0, Math.PI * 2);
+      ctx.fillStyle = '#2a1a4a'; ctx.fill();
+      ctx.restore();
+    });
+
+    // Flowers
+    flowers.forEach((f, fi) => {
+      f.life++;
+      if (f.r < f.maxR) f.r += 2;
+      const alpha = f.life > 80 ? Math.max(0, 1 - (f.life - 80) / 40) : 1;
+      ctx.save(); ctx.translate(f.x, f.y); ctx.globalAlpha = alpha;
+      for (let p = 0; p < f.petals; p++) {
+        ctx.save(); ctx.rotate((p / f.petals) * Math.PI * 2);
+        ctx.beginPath(); ctx.ellipse(f.r * 0.5, 0, f.r * 0.35, f.r * 0.2, 0, 0, Math.PI * 2);
+        ctx.fillStyle = f.color; ctx.fill(); ctx.restore();
+      }
+      ctx.beginPath(); ctx.arc(0, 0, f.r * 0.25, 0, Math.PI * 2);
+      ctx.fillStyle = var_gold; ctx.fill();
+      ctx.restore();
+      if (f.life > 120) flowers.splice(fi, 1);
+    });
+
+    // Sparkles
+    sparkles.forEach((s, si) => {
+      s.x += s.vx; s.y += s.vy; s.vy += 0.1; s.life++;
+      const a = 1 - s.life / s.maxLife;
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r * a, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(212,175,106,${a})`; ctx.fill();
+      if (s.life >= s.maxLife) sparkles.splice(si, 1);
+    });
+
+    requestAnimationFrame(draw);
+  }
+  const var_gold = '#d4af6a';
+  draw();
+}
+
+// ────────────────────────────────────────
+// HAPPINESS METER
+// ────────────────────────────────────────
+function initMeter() {
+  let pct = 0;
+  const fill = document.getElementById('meterFill');
+  const pctEl = document.getElementById('meterPct');
+  const msg = document.getElementById('happyMsg');
+  const msgs = ['Keep going! 💜','You\'re getting happier!','Almost there! 🌸','The smile is loading... ✨'];
+  document.getElementById('happyBtn').addEventListener('click', () => {
+    if (pct >= 100) return;
+    pct = Math.min(100, pct + (Math.random() * 15 + 8));
+    fill.style.width = pct + '%';
+    pctEl.textContent = Math.round(pct) + '%';
+    spawnConfetti(20);
+    for (let i = 0; i < 3; i++) setTimeout(() => spawnHeart(), i * 200);
+    if (pct >= 100) {
+      msg.textContent = 'Mission Complete: Noga\'s Smile Unlocked 😊';
+      msg.style.color = '#d4af6a';
+      spawnConfetti(80);
+    } else {
+      msg.textContent = msgs[Math.floor(Math.random() * msgs.length)];
+    }
+  });
+}
+
+// ────────────────────────────────────────
+// QUOTES
+// ────────────────────────────────────────
+function initQuotes() {
+  const quotes = [
+    '"You are enough."',
+    '"You are stronger than today."',
+    '"Your future is brighter than you think."',
+    '"The best chapters are still ahead."',
+    '"You deserve every good thing coming your way."',
+    '"Your light cannot be dimmed."'
+  ];
+  const el = document.getElementById('quoteText');
+  const dots = document.getElementById('quoteDots');
+  let cur = 0;
+
+  quotes.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'q-dot' + (i === 0 ? ' active' : '');
+    dots.appendChild(d);
+  });
+
+  el.textContent = quotes[0];
+
+  setInterval(() => {
+    el.classList.add('fade');
+    setTimeout(() => {
+      cur = (cur + 1) % quotes.length;
+      el.textContent = quotes[cur];
+      el.classList.remove('fade');
+      dots.querySelectorAll('.q-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+    }, 600);
+  }, 3500);
+}
+
+// ────────────────────────────────────────
+// GIFT BOX
+// ────────────────────────────────────────
+let giftOpened = false;
+function openGift() {
+  if (giftOpened) return;
+  giftOpened = true;
+  document.getElementById('giftBox').textContent = '🎊';
+  spawnConfetti(150);
+  spawnFireworks();
+  for (let i = 0; i < 20; i++) setTimeout(() => spawnHeart(), i * 100);
+  const msg = document.getElementById('finalMsg');
+  msg.style.display = 'block';
+  setTimeout(() => msg.classList.add('visible'), 100);
+}
+
+function spawnFireworks() {
+  const colors = ['#f4a7c3','#c9b8e8','#d4af6a','#9b72cf','#ffffff'];
+  for (let f = 0; f < 5; f++) {
+    setTimeout(() => {
+      const x = 20 + Math.random() * 60;
+      const y = 10 + Math.random() * 50;
+      spawnConfetti(30, x, y);
+    }, f * 400);
+  }
+}
+
+// ────────────────────────────────────────
+// HEARTS
+// ────────────────────────────────────────
+function spawnHeart() {
+  const hearts = ['💜','💖','🌸','✨','💕','🌷'];
+  const el = document.createElement('div');
+  el.className = 'heart-particle';
+  el.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+  el.style.left = (Math.random() * 100) + 'vw';
+  el.style.bottom = (Math.random() * 30 + 5) + 'vh';
+  el.style.animationDuration = (2 + Math.random() * 2) + 's';
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 4000);
+}
+
+// ────────────────────────────────────────
+// CONFETTI
+// ────────────────────────────────────────
+function spawnConfetti(count = 40, cx, cy) {
+  const colors = ['#c9b8e8','#f4a7c3','#d4af6a','#9b72cf','#fff','#fce4ec','#e1bee7'];
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    const startX = cx != null ? cx + 'vw' : (Math.random() * 100) + 'vw';
+    el.style.left = startX;
+    el.style.top = cy != null ? cy + 'vh' : '-10px';
+    el.style.background = colors[Math.floor(Math.random() * colors.length)];
+    el.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    el.style.width = el.style.height = (6 + Math.random() * 8) + 'px';
+    el.style.animationDuration = (2 + Math.random() * 3) + 's';
+    el.style.animationDelay = (Math.random() * 0.5) + 's';
+    el.style.transform = `translateX(${(Math.random()-0.5)*200}px)`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 5000);
+  }
+}
+
+// ────────────────────────────────────────
+// MUSIC (Web Audio ambient)
+// ────────────────────────────────────────
+let audioCtx = null, musicPlaying = false, oscNodes = [], gainNode = null;
+
+function startMusic() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  gainNode = audioCtx.createGain();
+  gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+  gainNode.gain.linearRampToValueAtTime(0.06, audioCtx.currentTime + 2);
+  gainNode.connect(audioCtx.destination);
+
+  const freqs = [261.63, 329.63, 392, 523.25, 659.26];
+  freqs.forEach((freq, i) => {
+    const osc = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+    g.gain.value = 0.3;
+    osc.connect(g); g.connect(gainNode);
+    osc.start();
+    oscNodes.push(osc);
+    // Gentle tremolo
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 0.3 + i * 0.1;
+    lfoGain.gain.value = 0.02;
+    lfo.connect(lfoGain); lfoGain.connect(g.gain);
+    lfo.start();
+  });
+  musicPlaying = true;
+}
+
+function stopMusic() {
+  if (gainNode) gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
+  setTimeout(() => {
+    oscNodes.forEach(o => o.stop());
+    oscNodes = [];
+    musicPlaying = false;
+    audioCtx = null;
+  }, 1100);
+}
+
+document.getElementById('musicBtn').addEventListener('click', () => {
+  if (!musicPlaying) { startMusic(); document.getElementById('musicBtn').textContent = '🔇 Music'; }
+  else { stopMusic(); document.getElementById('musicBtn').textContent = '🎵 Music'; }
+});
+
+// ────────────────────────────────────────
+// DARK / LIGHT MODE
+// ────────────────────────────────────────
+let isDark = true;
+document.getElementById('themeBtn').addEventListener('click', () => {
+  isDark = !isDark;
+  document.body.classList.toggle('light-mode', !isDark);
+  document.getElementById('themeBtn').textContent = isDark ? '🌙 Theme' : '☀️ Theme';
+});
+
+// Periodic hearts in hero
+setInterval(() => {
+  if (window.scrollY < window.innerHeight) spawnHeart();
+}, 3000);
+
+// ────────────────────────────────────────
+// MEMORY WALL MODAL
+// ────────────────────────────────────────
+const MEMORY_DATA = [
+  {
+    icon: '🤝',
+    title: 'Always There • دايمًا موجودة',
+    accent: ['#c9b8e8','#9b72cf','#f4a7c3'],
+    text: `يا نوجا،
+
+من أجمل الحاجات اللي عمري ما هنساهالك إنك وقفتي وساعدتي إن الأمور ترجع كويسة بيني وبين روكة.
+
+وده موقف يثبت قد إيه قلبك كبير وبتحبي الخير للناس اللي حواليكي.
+
+وكمان عمرك ما اتأخرتي في نصيحتي لما أكون محتاج حد يسمعني أو يوجهني.
+
+ودايمًا بلاقيكي واقفة في صفي وقت ما أحتاجك.
+
+وصدقيني، وجود شخص زيك في حياة أي حد يعتبر مكسب كبير.
+
+شكراً إنك نوجا الجميلة اللي دايمًا بتحاول تساعد اللي حواليها. 💜✨`
+  },
+  {
+    icon: '🎓',
+    title: 'Bright Future • مستقبل مشرق',
+    accent: ['#d4af6a','#f0d080','#f4a7c3'],
+    text: `يا نوجا،
+
+عارف إن الدراسة ساعات بتكون متعبة ومملة،
+
+بس متنسيش إن كل يوم بتتعبي فيه دلوقتي بيقربك أكتر من حلمك.
+
+قدامك مستقبل جميل بإذن الله.
+
+وأنا متأكد إنك تقدري توصلي للكلية اللي نفسك فيها لو فضلتي مكملة ومصدقة نفسك.
+
+خلي عندك ثقة في قدراتك.
+
+وشدي حيلك شوية،
+
+لأن التعب اللي النهارده هيبقى سبب فرحتك بكرة.
+
+وأتمنى أشوفك محققة كل حاجة بتحلمي بيها. 🌷🎓✨`
+  },
+  {
+    icon: '🌟',
+    title: 'Hidden Treasure • كنز مخفي',
+    accent: ['#f4a7c3','#c9b8e8','#d4af6a'],
+    text: `عارفة يا نوجا؟
+
+أحيانًا الإنسان بيكون عنده صفات جميلة جدًا ومبيبقاش واخد باله منها.
+
+لكن الناس اللي حواليه بيشوفوها كويس.
+
+انتي شخص طيب وجدع،
+
+وعندك قلب جميل،
+
+وبتحاولي تساعدي اللي حواليكي من غير ما تستني مقابل.
+
+وعندك روح جميلة بتخلي وجودك مريح ومميز.
+
+ومهما حصل أو ضايقك،
+
+متخليش أي حاجة تخليكي تشكي لحظة في قيمتك.
+
+لأنك فعلًا شخص مميز،
+
+وأحسن بكتير مما تتخيلي. 💜🌟`
+  }
+];
+
+let memTwTimer = null;
+
+// Wire up frame clicks
+document.querySelectorAll('.frame[data-memory]').forEach(frame => {
+  frame.addEventListener('click', () => {
+    const id = parseInt(frame.dataset.memory);
+    openMemoryModal(id);
+  });
+});
+
+function openMemoryModal(id) {
+  const data = MEMORY_DATA[id];
+  const modal = document.getElementById('memoryModal');
+  const iconEl = document.getElementById('memModalIcon');
+  const titleEl = document.getElementById('memModalTitle');
+  const textEl = document.getElementById('memModalText');
+
+  iconEl.textContent = data.icon;
+  titleEl.textContent = data.title;
+  textEl.innerHTML = '<span class="tw-cursor"></span>';
+
+  // Colour the border glow based on card accent
+  const box = modal.querySelector('.memory-modal-inner');
+  box.style.boxShadow = `0 40px 120px ${data.accent[0]}55, 0 0 80px ${data.accent[1]}22, inset 0 1px 0 rgba(255,255,255,0.12)`;
+
+  // Build sparkles with card accent colours
+  buildMemSparkles(data.accent);
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Start typewriter
+  if (memTwTimer) clearTimeout(memTwTimer);
+  let i = 0;
+  const full = data.text;
+  function tw() {
+    if (i <= full.length) {
+      textEl.innerHTML = full.slice(0, i).replace(/\n/g, '<br>') + '<span class="tw-cursor"></span>';
+      i++;
+      memTwTimer = setTimeout(tw, i < 5 ? 30 : 22);
+    } else {
+      textEl.innerHTML = full.replace(/\n/g, '<br>');
+    }
+  }
+  setTimeout(tw, 300);
+
+  // Floating hearts inside modal at intervals
+  const heartInterval = setInterval(() => {
+    if (!modal.classList.contains('open')) { clearInterval(heartInterval); return; }
+    spawnModalHeart(modal.querySelector('.memory-modal-box'));
+  }, 1200);
+}
+
+function buildMemSparkles(accent) {
+  const container = document.getElementById('memoryModalSparkles');
+  container.innerHTML = '';
+  for (let i = 0; i < 22; i++) {
+    const s = document.createElement('div');
+    s.className = 'mem-sparkle';
+    const size = 3 + Math.random() * 5;
+    const color = accent[Math.floor(Math.random() * accent.length)];
+    s.style.cssText = `
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      width:${size}px; height:${size}px;
+      background:${color};
+      animation-duration:${2.5 + Math.random() * 3}s;
+      animation-delay:${Math.random() * 2.5}s;
+      opacity:0;
+      box-shadow: 0 0 ${size*2}px ${color};
+    `;
+    container.appendChild(s);
+  }
+}
+
+function spawnModalHeart(parent) {
+  const h = document.createElement('div');
+  h.className = 'modal-float-heart';
+  const hearts = ['💜','💖','🌸','✨','💕','🌷','🤍'];
+  h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+  h.style.left = (10 + Math.random() * 80) + '%';
+  h.style.bottom = (5 + Math.random() * 20) + '%';
+  h.style.animationDuration = (1.8 + Math.random() * 1.5) + 's';
+  parent.appendChild(h);
+  setTimeout(() => h.remove(), 3500);
+}
+
+function closeMemoryModal() {
+  const modal = document.getElementById('memoryModal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  if (memTwTimer) { clearTimeout(memTwTimer); memTwTimer = null; }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeMemoryModal(); closeModal(); }
+});</script>
+</body>
+</html>
